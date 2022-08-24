@@ -5,8 +5,11 @@ def Rental
   def initialize(date, person, book)
     @date = date
     @person = person
-    person.rentals << self
-    @book = book
-    book.rentals << self
+    book.rentals.push(self)
+    person.rentals.push(self)
+  end
+  
+  def rentals
+    "#{@book.title}: #{@person.name} #{@date}"
   end
 end

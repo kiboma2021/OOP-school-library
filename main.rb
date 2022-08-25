@@ -1,7 +1,7 @@
 require './app'
 require './student'
 require './teacher'
-require './books'
+require './book'
 require './rental'
 
 class Main
@@ -63,11 +63,11 @@ class Main
   end
 
   def filter_rental
-    if @people.empty? || @rentals.empty?
+    if @person.empty? || @rentals.empty?
       puts 'NO RENTALS TO DISPLAY'
     else
       puts 'Select a person id'
-      @people.each_with_index { |person, index| puts "#{index}: #{person.name}" }
+      @person.each_with_index { |person, index| puts "#{index}: #{person.name}" }
       id = gets.chomp.to_i
       list_rentals(@rentals, @person[id].name)
     end
@@ -96,7 +96,7 @@ class Main
     classroom = gets.chomp
     parent_permission = get_permission(permission)
     create_people(@person, Student.new(classroom, age, name, parent_permission: parent_permission))
-    puts "Student has been sucessfully created! \n\n"
+    puts "===Student has been sucessfully created!=== \n\n"
   end
 
   def teacher_add
@@ -117,7 +117,7 @@ class Main
     title = gets.chomp
     print 'AUTHOR: '
     author = gets.chomp
-    create_book(@books, Books.new(title, author))
+    create_book(@books, Book.new(title, author))
     puts "Book has been sucessfully created! \n\n"
   end
 

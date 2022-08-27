@@ -117,7 +117,7 @@ class Main
     title = gets.chomp
     print 'AUTHOR: '
     author = gets.chomp
-    create_book(@books, Book.new(title, author))
+    create_book(@booksss, Book.new(title, author))
     puts "Book has been sucessfully created! \n\n"
   end
 
@@ -133,7 +133,7 @@ class Main
       rent_book_id = gets.chomp.to_i
       @person.each_with_index { |people, index| puts "#{index}: #{people.name}" }
       rental_people_id = gets.chomp.to_i
-      create_rental(@rentals, Rental.new(@books[rent_book_id], @person[rental_people_id]))
+      create_rental(@rentals, Rental.new(@books[rent_book_id], @person[rental_people_id],@books))
       puts "Rental has been sucessfully created! \n\n"
     end
   end

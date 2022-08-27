@@ -1,3 +1,4 @@
+require 'pry'
 require './app'
 require './student'
 require './teacher'
@@ -117,9 +118,11 @@ class Main
     title = gets.chomp
     print 'AUTHOR: '
     author = gets.chomp
-    create_book(@booksss, Book.new(title, author))
+    create_book(@books, Book.new(title, author))
     puts "Book has been sucessfully created! \n\n"
   end
+
+binding.pry
 
   def rental_add
     puts 'Adding Book Rental...'

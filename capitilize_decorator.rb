@@ -2,6 +2,6 @@ require './decorator'
 
 class CapitalizeDecorator < Decorator
   def correct_name
-    @nameable_object.correct_name.capitalize
+    @nameable_object.correct_name
   end
 end
